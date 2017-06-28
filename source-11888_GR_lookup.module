@@ -2,7 +2,7 @@
 /*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
  * Developer Notes: Konstantinos Merentitis
  * Version History
- *        2017-06-28   Initial release
+ *        2016-02-11   Initial release
  *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
 //Greek to Greeklish script - thanx to Burned4
@@ -21,7 +21,7 @@ class 11888_GR_lookup extends superfecta_base {
     public $version_requirement = "2.11";
     function get_caller_id($thenumber, $run_param=array()) {
         $caller_id = null;
-        $url = "https://www.11888.gr/list-names?_wpType=number&_wpPhone=$thenumber";
+        $url = "http://www.11888.gr/list-names?_wpType=number&_wpPhone=$thenumber";
         $pattern = '/title"\>(.*)\<\/span>/U';
 
             if ($this->SearchURL($url, $pattern, $match)) {
