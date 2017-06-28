@@ -28,6 +28,8 @@ class 11888_GR_lookup extends superfecta_base {
                 $caller_id = $this->ExtractMatch($match);
                 $caller_id = greeklish($caller_id);
                 $caller_id = substr($caller_id, 0, 35);
+		// Optional: convert to title case:
+	        // $caller_id = ucwords(strtolower($caller_id));
         }
 	return($caller_id);
     }
