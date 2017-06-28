@@ -2,8 +2,9 @@
 /*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
  * Developer Notes: Konstantinos Merentitis
  * Version History
- *        2017-06-28   Initial release
- *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+ *        2017-06-28   11888.gr now needs https
+ *	  2016-02-11   Initial release
+  *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
 //Greek to Greeklish script - thanx to Burned4
 function greeklish($Name)
