@@ -4,7 +4,7 @@
  * Version History
  *        2017-11-08   URL, pattern changed
  *        2017-06-28   11888.gr now needs https
- *	  2016-02-11   Initial release
+ *	       2016-02-11   Initial release
   *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
 //Set the following to "1" if you wish to display the Last Name first:
@@ -14,13 +14,13 @@ $swap = "1";
 function greeklish($Name)
 
  {
-$greek = array('α','ά','?^?','?^?','β','?^?','γ', '?^?', 'δ','?^?','ε','έ','?^?','?^?','ζ','?^?','η','ή','?^?','θ','?^?','ι','ί','?^?','?^?','?^?','?^?', 'κ','?^?','λ','?^?','μ','?^?','$
-$english = array('a', 'a','A','A','b','B','g','G','d','D','e','e','E','E','z','Z','i','i','I','th','TH', 'i','i','i','i','I','I','k','K','l','L','m','M','n','N','x','X','o','o','O','O','p','P' ,'r','R'$
+$greek = array('α','ά','Ά','Α','β','Β','γ', 'Γ', 'δ','Δ','ε','έ','Ε','Έ','ζ','Ζ','η','ή','Η','θ','Θ','ι','ί','ϊ','ΐ','Ι','Ί', 'κ','Κ','λ','Λ','μ','Μ','ν','Ν','ξ','Ξ','ο','ό','Ο','Ό','π','Π','ρ','Ρ','σ','ς', 'Σ','τ','Τ','υ','ύ','Υ','Ύ','φ','Φ','χ','Χ','ψ','Ψ','ω','ώ','Ω','Ώ'); 
+$english = array('a', 'a','A','A','b','B','g','G','d','D','e','e','E','E','z','Z','i','i','I','th','TH', 'i','i','i','i','I','I','k','K','l','L','m','M','n','N','x','X','o','o','O','O','p','P' ,'r','R','s','s','S','t','T','u','u','Y','Y','f','F','ch','CH','ps','PS','o','o','O','O',); 
 $string  = str_replace($greek, $english, $Name);
 return $string;
  }
 
-class LocalTel_CH extends superfecta_base {
+class 11888_GR_lookup extends superfecta_base {
 
  public $description = "11888 - Greece Reverse Phone Lookup";
     public $version_requirement = "2.11";
