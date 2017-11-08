@@ -7,17 +7,20 @@
  *	  2016-02-11   Initial release
   *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
+//Set the following to "1" if you wish to display the Last Name first:
+$swap = "1";
+
 //Greek to Greeklish script - thanx to Burned4
 function greeklish($Name)
 
  {
-$greek = array('α','ά','Ά','Α','β','Β','γ', 'Γ', 'δ','Δ','ε','έ','Ε','Έ','ζ','Ζ','η','ή','Η','θ','Θ','ι','ί','ϊ','ΐ','Ι','Ί', 'κ','Κ','λ','Λ','μ','Μ','ν','Ν','ξ','Ξ','ο','ό','Ο','Ό','π','Π','ρ','Ρ','σ','ς', 'Σ','τ','Τ','υ','ύ','Υ','Ύ','φ','Φ','χ','Χ','ψ','Ψ','ω','ώ','Ω','Ώ'); 
-$english = array('a', 'a','A','A','b','B','g','G','d','D','e','e','E','E','z','Z','i','i','I','th','TH', 'i','i','i','i','I','I','k','K','l','L','m','M','n','N','x','X','o','o','O','O','p','P' ,'r','R','s','s','S','t','T','u','u','Y','Y','f','F','ch','CH','ps','PS','o','o','O','O',); 
+$greek = array('α','ά','?^?','?^?','β','?^?','γ', '?^?', 'δ','?^?','ε','έ','?^?','?^?','ζ','?^?','η','ή','?^?','θ','?^?','ι','ί','?^?','?^?','?^?','?^?', 'κ','?^?','λ','?^?','μ','?^?','$
+$english = array('a', 'a','A','A','b','B','g','G','d','D','e','e','E','E','z','Z','i','i','I','th','TH', 'i','i','i','i','I','I','k','K','l','L','m','M','n','N','x','X','o','o','O','O','p','P' ,'r','R'$
 $string  = str_replace($greek, $english, $Name);
 return $string;
  }
 
-class 11888_GR_lookup extends superfecta_base {
+class LocalTel_CH extends superfecta_base {
 
  public $description = "11888 - Greece Reverse Phone Lookup";
     public $version_requirement = "2.11";
@@ -25,15 +28,25 @@ class 11888_GR_lookup extends superfecta_base {
         $caller_id = null;
         $url = "https://www.11888.gr/search/?phone=$thenumber&mode=ts";
         $pattern = "/class=\"btn-line-right\"\>(.*)\<\/a\>/U";
-
-            if ($this->SearchURL($url, $pattern, $match)) {
+        if ($this->SearchURL($url, $pattern, $match)) {
                 $caller_id = $this->ExtractMatch($match);
                 $caller_id = greeklish($caller_id);
                 $caller_id = substr($caller_id, 0, 35);
-		// Optional: convert to title case:
-	        // $caller_id = ucwords(strtolower($caller_id));
+                $wordcount =  str_word_count($caller_id);
+                //Get middle name and check if it has only one character
+                $name_array = explode(' ', $caller_id); 
+                $name_array = array_filter($name_array); 
+                $midname = next($name_array);
         }
-	return($caller_id);
+        if ($wordcount == 3 && strlen($midname) == 1 && $swap == 1){
+                //Swap the third with the first word (First/Last Name)
+                $words =  str_word_count($caller_id,1);
+                $reversed_words = array_reverse($words);
+                $rev_output = implode(' ', $reversed_words);
+                $caller_id = $rev_output;
+                return($caller_id);
+        }
+        return($caller_id);
     }
 
 }
