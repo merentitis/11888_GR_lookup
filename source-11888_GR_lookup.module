@@ -8,7 +8,7 @@
   *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
 //Set the following to "1" if you wish to display the Last Name first:
-$swap = "1";
+$swap = 1;
 
 //Greek to Greeklish script - thanx to Burned4
 function greeklish($Name)
@@ -38,7 +38,7 @@ class 11888_GR_lookup extends superfecta_base {
                 $name_array = array_filter($name_array); 
                 $midname = next($name_array);
         }
-        if ($wordcount == 3 && strlen($midname) == 1 && $swap == 1){
+         if ($wordcount == "3" && strlen($midname) == "1" && $swap == "1"){
                 //Swap the third with the first word (First/Last Name)
                 $words =  str_word_count($caller_id,1);
                 $reversed_words = array_reverse($words);
