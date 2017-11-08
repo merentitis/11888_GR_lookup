@@ -2,9 +2,9 @@
 /*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
  * Developer Notes: Konstantinos Merentitis
  * Version History
- *        2017-11-08   URL, pattern changed
- *        2017-06-28   11888.gr now needs https
- *	       2016-02-11   Initial release
+ *	2017-11-08   URL, pattern changed
+ *	2017-06-28   11888.gr now needs https
+ *	2016-02-11   Initial release
   *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
 
 //Set the following to "1" if you wish to display the Last Name first:
